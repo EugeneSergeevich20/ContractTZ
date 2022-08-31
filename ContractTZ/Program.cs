@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ContractTZ.Models;
+using ContractTZ.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,10 +1,10 @@
 ﻿using ContractTZ1.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ContractTZ.Models
+namespace ContractTZ.Services
 {
     public class ApplicationContext : DbContext
-    { 
+    {
 
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<ContractStage> ContractStages { get; set; }
