@@ -1,8 +1,12 @@
 ﻿using ContractTZ.Services;
+using ContractTZ1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContractTZ.Controllers
 {
+    [ApiController]
+    [Route("/api/Contracts/Get[controller]")]
     public class ContractController : Controller
     {
 
@@ -13,9 +17,10 @@ namespace ContractTZ.Controllers
             db = context;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IAsyncEnumerable<Contract> Get()
         {
-            return View();
+            return db.Contracts.Include(c => c.contractStages).AsAsyncEnumerable();
         }
 
     }
