@@ -11,6 +11,9 @@ builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(c
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddRazorPages();
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();
@@ -19,6 +22,12 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapRazorPages();
+    endpoints.MapControllers();
+});
 
 app.MapControllerRoute(
     name: "default",

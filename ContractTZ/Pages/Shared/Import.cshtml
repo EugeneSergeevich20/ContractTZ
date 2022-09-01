@@ -1,0 +1,13 @@
+﻿@page "/Contracts/Import"
+@model ContractTZ.Pages.Shared.ImportModel
+@{
+	Layout = "_Layout";
+}
+
+<h3>Выберите Excel-файл для импорта данных в БД</h3>
+
+@using (Html.BeginForm("Import", "UploadFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	<input type="file" name="file" />
+	<input type="submit" value="OK" />
+}

@@ -11,6 +11,8 @@ namespace ContractTZ.Services
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
             Database.EnsureCreated();
         }
 
